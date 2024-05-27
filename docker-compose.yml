@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  dns-updater:
+    image: dns-updater
+    build: .
+    env_file:
+      - .env
+    restart: always
