@@ -8,12 +8,14 @@ import logging
 # Load environment variables from .env file
 load_dotenv()
 
-# Constants
-CHECK_INTERVAL = 1  # Interval in minutes
+# DNS check interval in minutes
+CHECK_INTERVAL = os.getenv("DNS_UPDATE_INTERVAL_MIN", default=10)
 
 # DuckDNS API token
 DUCKDNS_TOKEN = os.getenv("DUCKDNS_TOKEN")
-DOMAIN = os.getenv("DUCKDNS_HOST")  # DuckDNS subdomain (e.g., ogrergo.duckdns.org)
+
+# DuckDNS subdomain (e.g., ogrergo.duckdns.org)
+DOMAIN = os.getenv("DUCKDNS_HOST")
 
 logging.basicConfig(
     level=logging.INFO,
